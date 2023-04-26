@@ -8,7 +8,7 @@ const CreateInvoice = () => {
       <div className="wrapper  pt-10">
         <div className="box-shadow  px-[40px] border border-solid rounded-lg mb-10 py-[40px]">
           <h1 className="text-3xl font-bold mb-10">Create invoice</h1>
-          <div className="sm:flex gap-5">
+          <div className="sm:flex gap-5 flex-basis">
             <div>
               <label className="primary-label" htmlFor="">
                 Invoice ID
@@ -57,7 +57,7 @@ const CreateInvoice = () => {
           </label>
           <br />
           <input type="file" />
-          <div className="sm:flex gap-5">
+          <div className="flex flex-basis gap-5">
             <ButtonGrey />
             <ButtonBlue />
           </div>

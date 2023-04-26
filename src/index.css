@@ -11,18 +11,21 @@
   width: 80%;
   margin: auto;
 }
+.flex-basis > div{
+  flex-basis: 100% !important;
+}
 @layer components {
   .btn-outline {
-    @apply font-bold text-[#343440] border-[3px] border-solid rounded-xl text-[15px] sm:text-[22px]  sm:px-[150px] px-[85px] mt-10 py-[4px] sm:py-[8px];
+    @apply font-bold text-[#343440] border-[3px] border-solid rounded-xl text-[15px] sm:text-[22px]  w-[100%] mt-5 sm:mt-10 py-[4px] sm:py-[8px];
   }
   .btn-primary{
-    @apply text-[#FFFFFF] mt-5 sm:mt-10 bg-[#0652DD] border-[1px] border-solid rounded-xl text-[15px] sm:text-[22px] font-bold px-[55px] sm:px-[97px]  py-[7px] sm:py-[10px]
+    @apply text-[#FFFFFF] mt-5 sm:mt-10 bg-[#0652DD] border-[1px] border-solid rounded-xl text-[15px] sm:text-[21px] font-bold w-[100%]  py-[7px] sm:py-[10px]
   }
   .primary-input{
-    @apply outline-none w-full sm:min-w-[350px]  mt-1 border border-solid px-2 py-2 rounded-lg
+    @apply outline-none w-full   mt-1 border border-solid px-2 py-2 rounded-lg
   }
   .secondary-input{
-    @apply outline-none min-w-[100%] mt-1 mb-5  border border-solid px-2 py-2 rounded-lg
+    @apply outline-none w-[100%] mt-1 mb-5  border border-solid px-2 py-2 rounded-lg
   }
   .primary-label{
     @apply text-[#808087] text-[14px] font-bold
