@@ -1,9 +1,9 @@
 import React from "react";
 
-const ButtonGrey = () => {
+const ButtonGrey = ({ children }) => {
   return (
-    <div>
-      <button className="btn-outline">Back</button>
+    <div className="ml-[2rem]">
+      <button className="btn-outline ">{children}</button>
     </div>
   );
 };

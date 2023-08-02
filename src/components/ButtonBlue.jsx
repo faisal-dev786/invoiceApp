@@ -1,9 +1,12 @@
 import React from "react";
 
-const ButtonBlue = () => {
+const ButtonBlue = ({ children, icon }) => {
+  // console.log(icon);
   return (
-    <div>
-      <button className="btn-primary">Create invoice</button>
+    <div className="ml-[2rem]">
+      <button className="btn-blue ">
+        {children} {icon}
+      </button>
     </div>
   );
 };

@@ -7,20 +7,20 @@ const CreateInvoice = () => {
     <div>
       <div className="wrapper  pt-10">
         <div className="box-shadow  px-[40px] border border-solid rounded-lg mb-10 py-[40px]">
-          <h1 className="text-3xl font-bold mb-10">Create invoice</h1>
-          <div className="sm:flex gap-5 flex-basis">
-            <div>
+          <h1 className="heading1">Create invoice</h1>
+          <div className="sm:flex ml-[-1rem] flex-basis">
+            <div className="ml-[1rem]">
               <label className="primary-label" htmlFor="">
                 Invoice ID
               </label>
               <br />
               <input
-                className="primary-input sm:mt-0 mb-5"
+                className="primary-input mb-5"
                 placeholder="#2023-00001"
                 type="number"
               />
             </div>
-            <div>
+            <div className="ml-[1rem]">
               <label className="primary-label " htmlFor="">
                 Amount ($)
               </label>{" "}
@@ -57,7 +57,7 @@ const CreateInvoice = () => {
           </label>
           <br />
           <input type="file" />
-          <div className="flex flex-basis gap-5">
+          <div className="flex flex-basis ml-[-2rem]">
             <ButtonGrey />
             <ButtonBlue />
           </div>
