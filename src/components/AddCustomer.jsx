@@ -13,6 +13,7 @@ const AddCustomer = () => {
             </span>
             <h1 className="heading1 mb-0">Add customer</h1>
             <span className="sm:text-3xl">
+              {/*  */}
               <FaTimesCircle />
             </span>
           </div>
