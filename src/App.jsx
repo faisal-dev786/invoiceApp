@@ -1,4 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "./services/firebase";
+
+import { redirect, useNavigate } from "react-router-dom";
 import CreateInvoice from "./components/CreateInvoice";
 import SendToCustomer from "./components/SendToCustomer";
 import AddCustomer from "./components/AddCustomer";
@@ -15,6 +19,7 @@ import { useLocation } from "react-router-dom";
 
 const App = () => {
   const location = useLocation();
+  const navigate = useNavigate();
 
   const checkLogin = () => {
     if (location.pathname === "/SignUp" || location.pathname === "/Login") {
@@ -23,6 +28,13 @@ const App = () => {
       return false;
     }
   };
+
+  onAuthStateChanged(auth, (user) => {
+    if (!user) {
+      navigate("/Login");
+    }
+  });
+
   return (
     <div>
       {checkLogin() === false ? <Navbar /> : ""}
@@ -33,6 +45,7 @@ const App = () => {
         {/* <Receipt /> */}
         {/* <Receipt2 /> */}
         {/* <SendToCustomerInvoice /> */}
+        <Route exact path="/CreateInvoice" element={<CreateInvoice />}></Route>
         <Route exact path="/SignUp" element={<SignUp />}></Route>
         <Route exact path="/Login" element={<Login />}></Route>
       </Routes>

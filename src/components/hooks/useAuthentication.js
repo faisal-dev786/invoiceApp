@@ -1,5 +1,9 @@
 import { auth } from "../../services/firebase";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut,
+} from "firebase/auth";
 import { useState } from "react";
 import { useStoreActions } from "easy-peasy";
 import { useNavigate } from "react-router-dom";
@@ -22,10 +26,10 @@ export const useAuthentication = () => {
     e.preventDefault();
 
     setUserInfo((prev) => {
-      if (e.target.name == "displayName" && e.target.value.length < 1) {
-        console.log(e.target.value);
-        return setIsDisabled(true);
-      }
+      // if (e.target.name == "displayName" && e.target.value.length < 1) {
+      //   console.log(e.target.value);
+      //   return setIsDisabled(true);
+      // }
 
       return { ...prev, [e.target.name]: e.target.value };
     });
@@ -53,8 +57,36 @@ export const useAuthentication = () => {
         email: userInfo.email,
         id: userSignUp.user.uid,
       });
-      console.log(userSignUp);
+      console.log("user signed up", userSignUp);
       navigate("/login");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const useUserSignIn = async () => {
+    try {
+      const userSignIn = await signInWithEmailAndPassword(
+        auth,
+        userInfo.email,
+        userInfo.password
+      );
+      setUser({
+        displayName: userInfo.displayName,
+        email: userInfo.email,
+        id: userSignIn.user.uid,
+      });
+      console.log("user signed in", userSignIn);
+      navigate("/CreateInvoice");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const useUserSignOut = async () => {
+    try {
+      const userSignOut = await signOut(auth);
+      console.log(userSignOut);
+      navigate("/");
     } catch (error) {
       console.log(error);
     }
@@ -62,6 +94,8 @@ export const useAuthentication = () => {
 
   return {
     useUserSignUp,
+    useUserSignIn,
+    useUserSignOut,
     handleUserInfo,
     userInfo,
     setUser,
